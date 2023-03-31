@@ -1,5 +1,5 @@
 # kubernetes-vdc-network-setup
-Terraform to setup an network within VCD to allow deployment of a TKG based Kubernetes cluster.
+Terraform to setup an network within VCD to allow deployment of an TKG based Kubernetes cluster.
 This setup is a *permissive* from a network security policy perspective. Examine the firewall rules carefully.
 
 
