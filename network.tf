@@ -20,7 +20,7 @@ resource "vcd_nsxt_ip_set" "kubenet_ips" {
   edge_gateway_id = data.vcd_nsxt_edgegateway.edge_gateway.id
   name            = "kubenetworkips"
   description     = "IP Set for kube network"
-  ip_addresses    = ["${var.k8s_24_network}.1/24"]
+  ip_addresses    = ["${var.k8s_24_network}.0/24"]
 }
 
 
@@ -57,6 +57,21 @@ resource "vcd_nsxt_network_dhcp" "kubenet" {
   dns_servers = [
     "1.1.1.1",
   "9.9.9.9"]
+}
+
+resource "vcd_nsxt_nat_rule" "SNAT-network" {
+  org = var.org
+
+  edge_gateway_id = data.vcd_nsxt_edgegateway.edge_gateway.id
+
+  name        = "SNAT-K8s-netork"
+  rule_type   = "SNAT"
+  description = "k8s network to the internet"
+
+  external_address = var.k8s_SNAT_IP
+  internal_address = "${var.k8s_24_network}.0/24"
+
+  logging = false
 }
 
 resource "vcd_nsxt_firewall" "firewalls" {

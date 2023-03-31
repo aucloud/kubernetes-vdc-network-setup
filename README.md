@@ -31,7 +31,7 @@ Note: State for this terraform codebase is only setup locally
    2. Virtual Data centre name
    3. Public IP ranges allocated to the VDC
    4. Org name
-3. Either via a `.tfvars` file or environmental variables override the required [varialbles](https://developer.hashicorp.com/terraform/language/values/variables)
+3. Either via a `.tfvars` file or environmental variables override the required [variables](https://developer.hashicorp.com/terraform/language/values/variables)
 4. Run the terraform to deploy the network configuration e.g.
     1. `terraform init`
     2. `terraform apply`
