@@ -11,7 +11,7 @@ variable "vcd_pass" {
 variable "url" {
   type    = string
   # Currently set for AUCloud EDCE in BSZ
-  default = "https://api-vcd-bsz.enterprise.australiacloud.com.au/api"
+  default = "https://api-vcd-sz101.portal.australiacloud.com.au/api"
 }
 variable "vdc" {
   type = string
@@ -29,12 +29,12 @@ variable "edge_gateway" {
 
 variable "k8s_api_vs_ip" {
   # From your public allocation. Will need to be matched as the k8s api IP in cluster provisioner
-  default = ""
+  default = "103.74.200.14"
 }
 
 variable "k8s_SNAT_IP" {
   # Another public IP. Virtual services IPs cannot act directly as an SNAT. Required to pull packages.
-  default = ""
+  default = "103.74.200.15"
 }
 
 variable "k8s_24_network" {
