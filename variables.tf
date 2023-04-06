@@ -29,12 +29,12 @@ variable "edge_gateway" {
 
 variable "k8s_api_vs_ip" {
   # From your public allocation. Will need to be matched as the k8s api IP in cluster provisioner
-  default = "103.74.200.14"
+  default = ""
 }
 
 variable "k8s_SNAT_IP" {
   # Another public IP. Virtual services IPs cannot act directly as an SNAT. Required to pull packages.
-  default = "103.74.200.15"
+  default = ""
 }
 
 variable "k8s_24_network" {
