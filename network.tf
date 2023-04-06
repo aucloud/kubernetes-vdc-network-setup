@@ -44,8 +44,16 @@ resource "vcd_network_routed_v2" "kubenet" {
   gateway       = "${var.k8s_24_network}.1"
   prefix_length = 24
 
+static_ip_pool {
+start_address = "${var.k8s_24_network}.5"
+end_address = "${var.k8s_24_network}.250"
 }
 
+dns1 = "1.1.1.1"
+dns2 = "9.9.9.9" 
+
+}
+/* 
 resource "vcd_nsxt_network_dhcp" "kubenet" {
   org_network_id = vcd_network_routed_v2.kubenet.id
 
@@ -57,7 +65,8 @@ resource "vcd_nsxt_network_dhcp" "kubenet" {
   dns_servers = [
     "1.1.1.1",
   "9.9.9.9"]
-}
+} */
+
 
 resource "vcd_nsxt_nat_rule" "SNAT-network" {
   org = var.org
