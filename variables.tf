@@ -11,7 +11,7 @@ variable "vcd_pass" {
 variable "url" {
   type    = string
   # Currently set for AUCloud EDCE in BSZ
-  default = "https://api-vcd-sz101.portal.australiacloud.com.au/api"
+  default = "https://api-vcd-bsz.enterprise.australiacloud.com.au/api"
 }
 variable "vdc" {
   type = string
